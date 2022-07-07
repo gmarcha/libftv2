@@ -33,10 +33,6 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 		@ $(MKDIR) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
 		$(CC) $(CFLAGS) $(INCS) -MMD -MF $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $(@:.o=.d)) -o $@ -c $<
 
-.PHONY: test
-test: all
-		$(CC) $(CFLAGS) -I. main.c -L. -lft && ./a.out
-
 .PHONY: clean
 clean:
 		$(RM) $(OBJS) $(DEPS)
