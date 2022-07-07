@@ -1,5 +1,8 @@
+.vscode/
+
 bin/
 objs/
 deps/
+
 libft.a
 *.out
