@@ -17,7 +17,7 @@ DEPS_DIR	:= deps
 
 DIRS		:= $(shell $(LS) $(SRCS_DIR))
 
-INCS		:= $(foreach dir, $(addprefix $(INCS_DIR)/, $(DIRS)), $(addprefix -I, $(dir)))
+INCS		:= -I.# $(foreach dir, $(addprefix $(INCS_DIR)/, $(DIRS)), $(addprefix -I, $(dir)))
 SRCS		:= $(foreach dir, $(addprefix $(SRCS_DIR)/, $(DIRS)), $(wildcard $(dir)/*.c))
 OBJS		:= $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS:.c=.o))
 DEPS		:= $(patsubst $(SRCS_DIR)%, $(DEPS_DIR)%, $(SRCS:.c=.d))
@@ -30,7 +30,8 @@ $(NAME): $(OBJS)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 		@ $(MKDIR) $(dir $@)
-		$(CC) $(CFLAGS) $(INCS) -MMD -MF $(patsubst $(OBJS_DIR), $(DEPS_DIR), $(@:.o=.d)) -o $@ -c $<
+		@ $(MKDIR) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
+		$(CC) $(CFLAGS) $(INCS) -MMD -MF $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $(@:.o=.d)) -o $@ -c $<
 
 .PHONY: test
 test: all
