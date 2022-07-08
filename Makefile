@@ -1,14 +1,17 @@
-NAME		:= libft.a
+NAMEAR		:= libft.a
+NAMESO		:= libft.so
 
 CC			:= /bin/clang
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -fPIC
 
 AR			:= /bin/ar
 ARFLAGS		:= rcs
 
+LS			:= /bin/ls
+MV			:= /bin/mv
+CHMOD		:= /bin/chmod
 MKDIR		:= /bin/mkdir -p
 RM			:= /bin/rm -rf
-LS			:= /bin/ls
 
 INCS_DIR	:= incs
 SRCS_DIR	:= srcs
@@ -23,10 +26,21 @@ OBJS		:= $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS:.c=.o))
 DEPS		:= $(patsubst $(SRCS_DIR)%, $(DEPS_DIR)%, $(SRCS:.c=.d))
 
 .PHONY: all
-all: $(NAME)
+all: $(NAMEAR)
 
-$(NAME): $(OBJS)
+$(NAMEAR): $(OBJS)
 		$(AR) $(ARFLAGS) $@ $^
+
+.PHONY: so
+so: $(NAMESO)
+
+$(NAMESO): $(OBJS)
+		$(CC) -shared -o $@ $^
+
+.PHONY: install
+install: so
+		$(MV) $(NAMESO) /usr/lib
+		$(CHMOD) 755 /usr/lib/$(NAMESO)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 		@ $(MKDIR) $(dir $@)
