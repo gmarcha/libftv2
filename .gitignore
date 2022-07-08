@@ -4,5 +4,6 @@ bin/
 objs/
 deps/
 
-libft.a
+*.a
+*.so
 *.out
