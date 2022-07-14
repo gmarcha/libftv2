@@ -1,10 +1,12 @@
+NAMEH		:= libft.h
 NAMEAR		:= libft.a
 NAMESO		:= libft.so
 
+INCLUDE_DIR := /usr/include/
 INSTALL_DIR	:= /usr/lib/
 
 CC			:= /bin/clang
-CPPFLAGS	:= -I.
+CPPFLAGS	:= -I..
 CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wextra -Werror -fPIC
 
 AR			:= /bin/ar rcs
@@ -43,10 +45,13 @@ $(NAMESO): $(OBJS)
 
 .PHONY: install
 install: so
+		$(MKDIR) $(INCLUDE_DIR)libftv2/
+		$(CP) -r $(NAMEH) $(INCS_DIR) $(INCLUDE_DIR)libftv2/
 		$(CP) $(NAMESO) $(INSTALL_DIR)
 		$(CHMOD) 755 $(INSTALL_DIR)$(NAMESO)
 
 uninstall:
+		$(RM) $(INCLUDE_DIR)libftv2/
 		$(RM) $(INSTALL_DIR)$(NAMESO)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
