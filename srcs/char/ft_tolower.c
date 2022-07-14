@@ -1,3 +1,5 @@
+#include "incs/char/ft_tolower.h"
+
 int ft_tolower(int c) {
     if (c >= 'A' && c <= 'Z')
         return c + 32;
