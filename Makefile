@@ -1,7 +1,7 @@
 NAMEAR		:= libft.a
 NAMESO		:= libft.so
 
-INSTALL_DIR	:= /usr/local/lib/
+INSTALL_DIR	:= /usr/lib/
 
 CC			:= /bin/clang
 CPPFLAGS	:= -I.
