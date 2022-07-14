@@ -1,6 +1,5 @@
-.vscode/
-
 bin/
+lib/
 objs/
 deps/
 
