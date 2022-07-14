@@ -9,6 +9,8 @@ CC			:= /bin/clang
 CPPFLAGS	:= -I..
 CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wextra -Werror -fPIC
 
+GO			:= /usr/local/go/bin/go
+
 AR			:= /bin/ar rcs
 LS			:= /bin/ls
 CP			:= /bin/cp
@@ -50,14 +52,10 @@ install: so
 		$(CP) $(NAMESO) $(INSTALL_DIR)
 		$(CHMOD) 755 $(INSTALL_DIR)$(NAMESO)
 
+.PHONY: uninstall
 uninstall:
 		$(RM) $(INCLUDE_DIR)libftv2/
 		$(RM) $(INSTALL_DIR)$(NAMESO)
-
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-		@ $(MKDIR) $(dir $@)
-		@ $(MKDIR) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
-		$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d)) -o $@ -c $<
 
 .PHONY: clean
 clean:
@@ -65,5 +63,14 @@ clean:
 
 .PHONY: re
 re: clean all
+
+.PHONY: test
+test: install
+		CC=$(CC) $(GO) test -count=1 ./tests/char
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+		@ $(MKDIR) $(dir $@)
+		@ $(MKDIR) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
+		$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d)) -o $@ -c $<
 
 -include $(DEPS)
