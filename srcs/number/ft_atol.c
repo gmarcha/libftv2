@@ -1,5 +1,8 @@
 #include "libftv2/incs/number/ft_atol.h"
 
+#include <assert.h>
+#include <stddef.h>
+
 long ft_atol(const char* nptr) {
     assert(nptr != NULL);
 

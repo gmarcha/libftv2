@@ -1,5 +1,7 @@
 #include "libftv2/incs/btree/btree_create_node.h"
 
+#include <stdlib.h>
+
 t_btree* btree_create_node(void *content) {
 
     t_btree* node = malloc(sizeof(t_btree));

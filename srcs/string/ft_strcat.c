@@ -1,5 +1,10 @@
 #include "libftv2/incs/string/ft_strcat.h"
 
+#include <assert.h>
+#include <stddef.h>
+
+#include "libftv2/incs/string/ft_strlen.h"
+
 char* ft_strcat(char* dest, const char* src) {
     assert(dest != NULL);
     assert(src != NULL);

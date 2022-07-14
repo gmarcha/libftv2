@@ -1,5 +1,7 @@
 #include "libftv2/incs/string/ft_strslen.h"
 
+#include <assert.h>
+
 size_t ft_strslen(const char** strs) {
     assert(strs != NULL);
 

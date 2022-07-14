@@ -1,5 +1,7 @@
 #include "libftv2/incs/string/ft_memcmp.h"
 
+#include <assert.h>
+
 int ft_memcmp(const void* s1, const void* s2, size_t n) {
     assert(s1 != NULL);
     assert(s2 != NULL);

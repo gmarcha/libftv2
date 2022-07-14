@@ -1,5 +1,8 @@
 #include "libftv2/incs/number/ft_atoi.h"
 
+#include <assert.h>
+#include <stddef.h>
+
 int ft_atoi(const char* nptr) {
     assert(nptr != NULL);
     

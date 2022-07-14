@@ -1,5 +1,12 @@
 #include "libftv2/incs/string/ft_splitset.h"
 
+#include <assert.h>
+#include <stdlib.h>
+
+#include "libftv2/incs/char/ft_ischarset.h"
+#include "libftv2/incs/string/ft_strclen.h"
+#include "libftv2/incs/string/ft_strlcpy.h"
+
 static void* ft_free_split(char** strs, size_t size) {
     while (size--)
         free(strs[size]);

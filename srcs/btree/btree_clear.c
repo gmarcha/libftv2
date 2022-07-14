@@ -1,5 +1,7 @@
 #include "libftv2/incs/btree/btree_clear.h"
 
+#include <stdlib.h>
+
 void btree_clear(t_btree* node, void (*del)(void*)) {
     if (node == NULL)
         return ;

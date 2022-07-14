@@ -1,5 +1,7 @@
 #include "libftv2/incs/string/ft_memcpy.h"
 
+#include <assert.h>
+
 void* ft_memcpy(void* dest, const void* src, size_t n) {
     assert(dest != NULL);
     assert(src != NULL);

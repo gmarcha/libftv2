@@ -1,5 +1,8 @@
 #include "libftv2/incs/btree/btree_apply_infix.h"
 
+#include <assert.h>
+#include <stddef.h>
+
 void btree_apply_infix(t_btree* node, void (*f)(void*)) {
     assert(f != NULL);
 

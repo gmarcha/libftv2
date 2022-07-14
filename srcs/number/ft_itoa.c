@@ -1,5 +1,9 @@
 #include "libftv2/incs/number/ft_itoa.h"
 
+#include <stdlib.h>
+
+#include "libftv2/incs/number/ft_nbrlen.h"
+
 char* ft_itoa(int n) {
     size_t len = ft_nbrlen(n);
     char* nbr = malloc(sizeof(char) * (len + 1));

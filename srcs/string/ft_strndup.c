@@ -1,5 +1,11 @@
 #include "libftv2/incs/string/ft_strndup.h"
 
+#include <assert.h>
+#include <stdlib.h>
+
+#include "libftv2/incs/string/ft_strlen.h"
+#include "libftv2/incs/string/ft_strlcpy.h"
+
 char* ft_strndup(const char* s, size_t n) {
     assert(s != NULL);
 

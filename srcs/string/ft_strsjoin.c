@@ -1,5 +1,11 @@
 #include "libftv2/incs/string/ft_strsjoin.h"
 
+#include <assert.h>
+#include <stdlib.h>
+
+#include "libftv2/incs/string/ft_strlen.h"
+#include "libftv2/incs/string/ft_strcpy2.h"
+
 static size_t count_str(const char** strs, const char* sep) {
     size_t i = 0, count = 0;
     while (strs[i])

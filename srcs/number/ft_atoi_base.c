@@ -1,5 +1,9 @@
 #include "libftv2/incs/number/ft_atoi_base.h"
 
+#include <assert.h>
+
+#include "libftv2/incs/char/ft_ischarset.h"
+
 static size_t get_num(int c, const char* base) {
     size_t i = 0;
     while (base[i])

@@ -1,5 +1,12 @@
 #include "libftv2/incs/string/ft_strtrim.h"
 
+#include <assert.h>
+#include <stdlib.h>
+
+#include "libftv2/incs/char/ft_ischarset.h"
+#include "libftv2/incs/string/ft_strlen.h"
+#include "libftv2/incs/string/ft_strndup.h"
+
 static size_t getStart(char const* s, char const* set) {
 
     size_t start = 0;
