@@ -1,35 +1,39 @@
 NAMEAR		:= libft.a
 NAMESO		:= libft.so
 
+INSTALL_DIR	:= /usr/local/lib/
+
 CC			:= /bin/clang
-CFLAGS		:= -Wall -Wextra -Werror -fPIC
+CPPFLAGS	:= -I.
+CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wextra -Werror -fPIC
 
-AR			:= /bin/ar
-ARFLAGS		:= rcs
-
+AR			:= /bin/ar rcs
 LS			:= /bin/ls
-MV			:= /bin/mv
+CP			:= /bin/cp
 CHMOD		:= /bin/chmod
 MKDIR		:= /bin/mkdir -p
 RM			:= /bin/rm -rf
 
-INCS_DIR	:= incs
-SRCS_DIR	:= srcs
-OBJS_DIR	:= objs
-DEPS_DIR	:= deps
+INCS_DIR	:= incs/
+SRCS_DIR	:= srcs/
+OBJS_DIR	:= objs/
+DEPS_DIR	:= deps/
 
 DIRS		:= $(shell $(LS) $(SRCS_DIR))
 
-INCS		:= -I. # $(foreach dir, $(addprefix $(INCS_DIR)/, $(DIRS)), $(addprefix -I, $(dir)))
-SRCS		:= $(foreach dir, $(addprefix $(SRCS_DIR)/, $(DIRS)), $(wildcard $(dir)/*.c))
+# INCS		:= $(foreach dir, $(addprefix $(INCS_DIR), $(DIRS)), $(addprefix -I, $(dir)))
+SRCS		:= $(foreach dir, $(addprefix $(SRCS_DIR), $(DIRS)), $(wildcard $(dir)/*.c))
 OBJS		:= $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS:.c=.o))
 DEPS		:= $(patsubst $(SRCS_DIR)%, $(DEPS_DIR)%, $(SRCS:.c=.d))
 
 .PHONY: all
-all: $(NAMEAR)
+all: ar so
+
+.PHONY: ar
+ar: $(NAMEAR)
 
 $(NAMEAR): $(OBJS)
-		$(AR) $(ARFLAGS) $@ $^
+		$(AR) $@ $^
 
 .PHONY: so
 so: $(NAMESO)
@@ -39,23 +43,22 @@ $(NAMESO): $(OBJS)
 
 .PHONY: install
 install: so
-		$(MV) $(NAMESO) /usr/lib
-		$(CHMOD) 755 /usr/lib/$(NAMESO)
+		$(CP) $(NAMESO) $(INSTALL_DIR)
+		$(CHMOD) 755 $(INSTALL_DIR)$(NAMESO)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+uninstall:
+		$(RM) $(INSTALL_DIR)$(NAMESO)
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 		@ $(MKDIR) $(dir $@)
 		@ $(MKDIR) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
-		$(CC) $(CFLAGS) $(INCS) -MMD -MF $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $(@:.o=.d)) -o $@ -c $<
+		$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d)) -o $@ -c $<
 
 .PHONY: clean
 clean:
-		$(RM) $(OBJS) $(DEPS)
-
-.PHONY: fclean
-fclean: clean
-		$(RM) $(NAME)
+		$(RM) $(OBJS) $(DEPS) $(NAME) $(NAMESO)
 
 .PHONY: re
-re: fclean all
+re: clean all
 
 -include $(DEPS)
