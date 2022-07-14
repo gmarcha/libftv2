@@ -1,4 +1,4 @@
-#include "incs/string/ft_splitset.h"
+#include "libftv2/incs/string/ft_splitset.h"
 
 static void* ft_free_split(char** strs, size_t size) {
     while (size--)

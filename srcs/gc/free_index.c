@@ -1,4 +1,4 @@
-#include "incs/gc/free_index.h"
+#include "libftv2/incs/gc/free_index.h"
 
 void free_index(t_list** mem_ref, const char* name) {
 

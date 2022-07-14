@@ -1,4 +1,4 @@
-#include "incs/string/ft_strsjoin.h"
+#include "libftv2/incs/string/ft_strsjoin.h"
 
 static size_t count_str(const char** strs, const char* sep) {
     size_t i = 0, count = 0;

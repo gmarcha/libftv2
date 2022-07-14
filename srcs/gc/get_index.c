@@ -1,4 +1,4 @@
-#include "incs/gc/get_index.h"
+#include "libftv2/incs/gc/get_index.h"
 
 void* get_index(t_list** mem_ref, const char* name) {
 

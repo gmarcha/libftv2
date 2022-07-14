@@ -1,4 +1,4 @@
-#include "incs/list/ft_lstdel_front.h"
+#include "libftv2/incs/list/ft_lstdel_front.h"
 
 void ft_lstdel_front(t_list** alst, void (*del)(void*)) {
     if (*alst == NULL)

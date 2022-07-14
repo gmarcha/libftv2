@@ -1,4 +1,4 @@
-#include "incs/gc/malloc_index.h"
+#include "libftv2/incs/gc/malloc_index.h"
 
 void* malloc_index(t_list** mem_ref, const char* name, void (*mem_free)(void*), void* content) {
 

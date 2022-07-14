@@ -1,4 +1,4 @@
-#include "incs/string/ft_strcmp.h"
+#include "libftv2/incs/string/ft_strcmp.h"
 
 int ft_strcmp(const char* s1, const char* s2) {
     assert(s1 != NULL);

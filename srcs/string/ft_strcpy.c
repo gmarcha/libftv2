@@ -1,4 +1,4 @@
-#include "incs/string/ft_strcpy.h"
+#include "libftv2/incs/string/ft_strcpy.h"
 
 char* ft_strcpy(char* dest, const char* src) {
     assert(dest != NULL);

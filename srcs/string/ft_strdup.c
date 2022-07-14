@@ -1,4 +1,4 @@
-#include "incs/string/ft_strdup.h"
+#include "libftv2/incs/string/ft_strdup.h"
 
 char* ft_strdup(const char* s) {
     assert(s != NULL);

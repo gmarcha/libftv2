@@ -1,4 +1,4 @@
-#include "incs/string/ft_strtrim.h"
+#include "libftv2/incs/string/ft_strtrim.h"
 
 static size_t getStart(char const* s, char const* set) {
 

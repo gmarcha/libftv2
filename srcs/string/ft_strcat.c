@@ -1,4 +1,4 @@
-#include "incs/string/ft_strcat.h"
+#include "libftv2/incs/string/ft_strcat.h"
 
 char* ft_strcat(char* dest, const char* src) {
     assert(dest != NULL);

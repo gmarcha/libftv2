@@ -1,4 +1,4 @@
-#include "incs/string/ft_strchr.h"
+#include "libftv2/incs/string/ft_strchr.h"
 
 char* ft_strchr(const char* s, int c) {
     assert(s != NULL);

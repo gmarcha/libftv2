@@ -1,4 +1,4 @@
-#include "incs/number/ft_atoi.h"
+#include "libftv2/incs/number/ft_atoi.h"
 
 int ft_atoi(const char* nptr) {
     assert(nptr != NULL);

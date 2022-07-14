@@ -1,4 +1,4 @@
-#include "incs/string/ft_strnstr.h"
+#include "libftv2/incs/string/ft_strnstr.h"
 
 char* ft_strnstr(const char* big, const char* little, size_t len) {
     assert(big != NULL);

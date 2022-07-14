@@ -1,4 +1,4 @@
-#include "incs/char/ft_isdigit.h"
+#include "libftv2/incs/char/ft_isdigit.h"
 
 int ft_isdigit(int c) {
     return c >= '0' && c <= '9';

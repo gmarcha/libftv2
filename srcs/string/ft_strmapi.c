@@ -1,4 +1,4 @@
-#include "incs/string/ft_strmapi.h"
+#include "libftv2/incs/string/ft_strmapi.h"
 
 char* ft_strmapi(const char* s, char (*f)(unsigned int, char)) {
     char* str = (char *)malloc(ft_strlen(s) + 1);

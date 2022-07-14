@@ -1,4 +1,4 @@
-#include "incs/list/ft_lstclear.h"
+#include "libftv2/incs/list/ft_lstclear.h"
 
 void ft_lstclear(t_list** lst, void (*del)(void*)) {
     t_list* node = *lst;

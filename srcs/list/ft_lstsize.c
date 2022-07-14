@@ -1,4 +1,4 @@
-#include "incs/list/ft_lstsize.h"
+#include "libftv2/incs/list/ft_lstsize.h"
 
 size_t ft_lstsize(t_list* lst) {
 

@@ -1,4 +1,4 @@
-#include "incs/string/ft_memcmp.h"
+#include "libftv2/incs/string/ft_memcmp.h"
 
 int ft_memcmp(const void* s1, const void* s2, size_t n) {
     assert(s1 != NULL);

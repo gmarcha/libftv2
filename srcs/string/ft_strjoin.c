@@ -1,4 +1,4 @@
-#include "incs/string/ft_strjoin.h"
+#include "libftv2/incs/string/ft_strjoin.h"
 
 char* ft_strjoin(char const* s1, char const* s2) {
     assert(s1 != NULL);
