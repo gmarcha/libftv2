@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: apt-get install cppcheck clang-tidy pip
-    - run: pip install cpplint
+    - run: sudo apt-get install -y cppcheck clang-tidy pip
+    - run: sudo pip install cpplint
     - run: make lint
