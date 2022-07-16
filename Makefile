@@ -6,8 +6,8 @@ INCLUDE_DIR := /usr/include/
 INSTALL_DIR	:= /usr/lib/
 
 CC			:= /bin/clang
-CPPFLAGS	= -fPIC -I.. -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d))
-CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Werror
+CPPFLAGS	= -fPIC $(INCS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d))
+CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Weverything -Werror
 
 GO			:= /usr/local/go/bin/go
 
@@ -25,6 +25,7 @@ DEPS_DIR	:= deps/
 
 DIRS		:= $(shell $(LS) $(SRCS_DIR))
 
+INCS		:= -I..
 # INCS		:= $(foreach dir, $(addprefix $(INCS_DIR), $(DIRS)), $(addprefix -I, $(dir)))
 SRCS		:= $(foreach dir, $(addprefix $(SRCS_DIR), $(DIRS)), $(wildcard $(dir)/*.c))
 OBJS		:= $(patsubst $(SRCS_DIR)%, $(OBJS_DIR)%, $(SRCS:.c=.o))
@@ -63,6 +64,20 @@ clean:
 
 .PHONY: re
 re: clean all
+
+lint: clang-tidy cppcheck cpplint
+
+.PHONY: clang-tidy
+clang-tidy:
+		clang-tidy $(SRCS) -checks='-*,clang-analyzer-*' -warnings-as-errors='*' -- $(INCS)
+
+.PHONY: cppcheck
+cppcheck:
+		cppcheck $(INCS) --enable=all --suppress=missingIncludeSystem --suppress=unusedFunction $(NAMEH) $(INCS_DIR) $(SRCS_DIR)
+
+.PHONY: cpplint
+cpplint:
+		cpplint --recursive --root=srcs --filter=-runtime/int,-readability/casting,-legal/copyright srcs/
 
 .PHONY: test
 test:
