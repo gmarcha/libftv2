@@ -1,5 +1,8 @@
 # libftv2
 
+[![docs](https://github.com/gmarcha/libftv2/actions/workflows/docs.yaml/badge.svg)](https://github.com/gmarcha/libftv2/actions/workflows/docs.yaml)
+[![coverity](https://scan.coverity.com/projects/25273/badge.svg)](https://github.com/gmarcha/libftv2)
+
 A cleaner libft version, using static and dynamic library (`libft.a` and `libft.so` respectively).
 
 # Usage
