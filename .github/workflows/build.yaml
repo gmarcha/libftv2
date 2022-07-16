@@ -1,4 +1,4 @@
-name: lint
+name: build
 on:
   push:
     branches: [ master, dev ]
@@ -8,6 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: sudo apt-get install -y clang-tidy cppcheck pip
-    - run: sudo pip install cpplint
-    - run: make lint
+    - run: make
