@@ -13,9 +13,9 @@ char* ft_itoa_base(int n, const char* base, size_t len_base) {
     if (nbr == NULL)
         return NULL;
     nbr[len] = '\0';
-    unsigned int nb = n;
+    unsigned int nb = (unsigned int)n;
     if (n < 0)
-        nb = -n;
+        nb = (unsigned int)-n;
     while (len--) {
         nbr[len] = base[nb % len_base];
         nb /= len_base;

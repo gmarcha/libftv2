@@ -7,9 +7,9 @@
 #endif
 
 void ft_putnbr_fd(int fd, int n) {
-    unsigned int nb = n;
+    unsigned int nb = (unsigned int)n;
     if (n < 0)
-        nb = -n;
+        nb = (unsigned int)-n;
     if (n < 0)
         write(fd, "-", 1);
     if (nb >= 10)

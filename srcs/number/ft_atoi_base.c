@@ -23,6 +23,6 @@ int ft_atoi_base(const char* str, const char* base, size_t len_base) {
     if (*str == 43 || *str == 45)
         sign *= (*str++ & 2) - 1;
     while (*str && ft_ischarset(*str, base))
-        result = result * len_base + get_num(*str++, base);
+        result = result * (int)len_base + (int)get_num(*str++, base);
     return (result * sign);
 }

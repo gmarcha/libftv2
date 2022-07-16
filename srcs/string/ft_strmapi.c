@@ -9,9 +9,11 @@ char* ft_strmapi(const char* s, char (*f)(unsigned int, char)) {
     char* str = (char *)malloc(ft_strlen(s) + 1);
     if (str == NULL)
         return NULL;
-    size_t i = -1;
-    while (s[++i])
-        str[i] = f(i, s[i]);
+    size_t i = 0;
+    while (s[i]) {
+        str[i] = f((unsigned int)i, s[i]);
+        i++;
+    }
     str[i] = '\0';
     return str;
 }
