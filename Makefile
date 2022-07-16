@@ -7,7 +7,7 @@ INSTALL_DIR	:= /usr/lib/
 
 CC			:= /bin/clang
 CPPFLAGS	= -fPIC $(INCS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d))
-CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Weverything -Werror
+CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Werror
 
 GO			:= /usr/local/go/bin/go
 
