@@ -1,6 +1,7 @@
 # libftv2
 
 [![docs](https://github.com/gmarcha/libftv2/actions/workflows/docs.yaml/badge.svg)](https://github.com/gmarcha/libftv2/actions/workflows/docs.yaml)
+[![build](https://github.com/gmarcha/libftv2/actions/workflows/build.yaml/badge.svg)](https://github.com/gmarcha/libftv2/actions/workflows/build.yaml)
 [![lint](https://github.com/gmarcha/libftv2/actions/workflows/lint.yaml/badge.svg)](https://github.com/gmarcha/libftv2/actions/workflows/lint.yaml)
 [![coverity](https://scan.coverity.com/projects/25273/badge.svg)](https://github.com/gmarcha/libftv2)
 
