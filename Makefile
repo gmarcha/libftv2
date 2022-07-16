@@ -6,8 +6,8 @@ INCLUDE_DIR := /usr/include/
 INSTALL_DIR	:= /usr/lib/
 
 CC			:= /bin/clang
-CPPFLAGS	:= -I..
-CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wextra -Werror -fPIC
+CPPFLAGS	= -fPIC -I.. -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d))
+CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Werror
 
 GO			:= /usr/local/go/bin/go
 
@@ -43,7 +43,7 @@ $(NAMEAR): $(OBJS)
 so: $(NAMESO)
 
 $(NAMESO): $(OBJS)
-		$(CC) -shared -o $@ $^
+		$(CC) $(CFLAGS) -shared -o $@ $^
 
 .PHONY: install
 install: so
@@ -65,12 +65,11 @@ clean:
 re: clean all
 
 .PHONY: test
-test: install
-		CC=$(CC) $(GO) test -count=1 ./tests/char
+test:
+		CC=$(CC) $(GO) test -v -count=1 ./tests/char
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-		@ $(MKDIR) $(dir $@)
-		@ $(MKDIR) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
-		$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d)) -o $@ -c $<
+		@ $(MKDIR) $(dir $@) $(dir $(patsubst $(OBJS_DIR)%, $(DEPS_DIR)%, $@))
+		$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
 -include $(DEPS)
