@@ -77,7 +77,7 @@ cppcheck:
 
 .PHONY: cpplint
 cpplint:
-		cpplint --recursive --root=srcs --filter=-runtime/int,-readability/casting,-legal/copyright srcs/
+		cpplint --recursive --filter=-runtime/int,-readability/casting,-legal/copyright libft.h incs/ srcs/
 
 .PHONY: test
 test:
