@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: make CC=/bin/gcc
-    - run: make CC=/bin/clang
+    - run: make re CC=/bin/gcc
+    - run: make re CC=/bin/clang
