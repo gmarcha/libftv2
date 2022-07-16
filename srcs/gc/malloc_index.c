@@ -8,7 +8,7 @@
 #include "libftv2/incs/gc/free_mem_alloc.h"
 
 void* malloc_index(
-    t_list** mem_ref, const char* name, void (*mem_free)(), void* content) {
+    t_list** mem_ref, const char* name, t_free mem_free, void* content) {
     if (content == NULL)
         return NULL;
     t_mem_alloc* mem_alloc = malloc(sizeof(*mem_alloc));
