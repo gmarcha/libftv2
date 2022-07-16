@@ -3,10 +3,9 @@
 #include <stddef.h>
 
 void ft_lstadd_back(t_list** alst, t_list* new) {
-
     if (*alst == NULL) {
         *alst = new;
-        return ;
+        return;
     }
     t_list* node = *alst;
     while (node->next != NULL)

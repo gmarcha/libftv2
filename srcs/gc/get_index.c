@@ -6,7 +6,6 @@
 #include "libftv2/incs/gc/gc.h"
 
 void* get_index(t_list** mem_ref, const char* name) {
-
     if (name == NULL)
         return NULL;
     t_list* mem_node = *mem_ref;

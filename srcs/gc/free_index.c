@@ -8,13 +8,12 @@
 #include "libftv2/incs/gc/free_mem_alloc.h"
 
 void free_index(t_list** mem_ref, const char* name) {
-
     if (*mem_ref == NULL || name == NULL)
-        return ;
+        return;
     if (((t_mem_alloc *)(*mem_ref)->content)->name != NULL
         && ft_strcmp(((t_mem_alloc *)(*mem_ref)->content)->name, name) == 0) {
         ft_lstdel_front(mem_ref, free_mem_alloc);
-        return ;
+        return;
     }
     t_list* mem_node = *mem_ref;
     while (mem_node != NULL && mem_node->next != NULL) {
@@ -22,7 +21,7 @@ void free_index(t_list** mem_ref, const char* name) {
             && ft_strcmp(
                 ((t_mem_alloc *)mem_node->next->content)->name, name) == 0) {
             ft_lstdel_front(&mem_node->next, free_mem_alloc);
-            return ;
+            return;
         }
         mem_node = mem_node->next;
     }

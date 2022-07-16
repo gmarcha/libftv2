@@ -8,7 +8,7 @@ static size_t get_num(int c, const char* base) {
     size_t i = 0;
     while (base[i])
         if (c == base[i++])
-            break ;
+            break;
     return (i - 1);
 }
 

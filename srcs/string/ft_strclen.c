@@ -11,7 +11,7 @@ size_t ft_strclen(const char* s, const char* charset) {
     size_t i = 0;
     while (s[i]) {
         if (ft_ischarset(s[i], charset))
-            break ;
+            break;
         i++;
     }
     return i;

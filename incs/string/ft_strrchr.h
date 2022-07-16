@@ -1,3 +1,3 @@
 #pragma once
 
-char* ft_strrchr(const char* s, int c);
+const char* ft_strrchr(const char* s, int c);

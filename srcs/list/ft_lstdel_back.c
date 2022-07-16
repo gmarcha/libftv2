@@ -6,7 +6,7 @@
 
 void ft_lstdel_back(t_list** alst, void (*del)(void*)) {
     if (*alst == NULL)
-        return ;
+        return;
     t_list* node = *alst;
     while (node->next != NULL)
         node = node->next;

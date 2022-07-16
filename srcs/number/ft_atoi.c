@@ -5,7 +5,7 @@
 
 int ft_atoi(const char* nptr) {
     assert(nptr != NULL);
-    
+
     int result = 0, sign = 1;
     size_t i = 0;
     while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))

@@ -8,7 +8,6 @@
 #include "libftv2/incs/string/ft_strndup.h"
 
 static size_t getStart(char const* s, char const* set) {
-
     size_t start = 0;
     while (s[start] && ft_ischarset(s[start], set))
         start++;
@@ -16,7 +15,6 @@ static size_t getStart(char const* s, char const* set) {
 }
 
 static size_t getEnd(char const* s, char const* set, size_t start) {
-
     size_t end = ft_strlen(s);
     while (start < end && ft_ischarset(s[end - 1], set))
         end--;

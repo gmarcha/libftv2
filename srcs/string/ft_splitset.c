@@ -14,8 +14,7 @@ static void* ft_free_split(char** strs, size_t size) {
     return NULL;
 }
 
-static size_t count_word(const char* str, const char* charset)
-{
+static size_t count_word(const char* str, const char* charset) {
     size_t count = 0;
     if (*str) {
         if (!ft_ischarset(*str, charset))

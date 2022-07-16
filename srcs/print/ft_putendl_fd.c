@@ -16,7 +16,7 @@ void ft_putendl_fd(int fd, const char* s) {
 
     char* tmp = ft_strjoin(s, "\n");
     if (tmp == NULL)
-        return ;
+        return;
     write(fd, tmp, ft_strlen(s) + 1);
     free(tmp);
 }
