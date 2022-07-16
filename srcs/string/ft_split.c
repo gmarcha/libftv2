@@ -34,14 +34,14 @@ static char* allocate_string(const char* s, char c) {
 }
 
 static char** split_words(const char* s, char c, char** strs, size_t len) {
-    size_t i = 0, j;
+    size_t i = 0;
     while (i < len) {
         while (*s && *s == c)
             s++;
         strs[i] = allocate_string(s, c);
         if (strs[i] == NULL)
             return ft_free_split(strs, i);
-        j = 0;
+        size_t j = 0;
         while (*s && *s != c)
             strs[i][j++] = *s++;
         strs[i++][j] = '\0';
