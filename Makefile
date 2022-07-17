@@ -5,11 +5,11 @@ NAMESO		:= libft.so
 INCLUDE_DIR := /usr/include/
 INSTALL_DIR	:= /usr/lib/
 
-CC			:= /bin/clang
+CC			?= /bin/clang
 CPPFLAGS	= -fPIC $(INCS) -MMD -MF $(patsubst $(OBJS_DIR)%,$(DEPS_DIR)%,$(@:.o=.d))
-CFLAGS		:= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Werror
+CFLAGS		+= -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wconversion -Wextra -Werror
 
-GO			:= /usr/local/go/bin/go
+GO			?= /usr/local/go/bin/go
 
 AR			:= /bin/ar rcs
 LS			:= /bin/ls
