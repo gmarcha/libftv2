@@ -65,6 +65,7 @@ clean:
 .PHONY: re
 re: clean all
 
+.PHONY: lint
 lint: clang-tidy cppcheck cpplint
 
 .PHONY: clang-tidy
@@ -77,7 +78,7 @@ cppcheck:
 
 .PHONY: cpplint
 cpplint:
-		cpplint --recursive --filter=-runtime/int,-readability/casting,-legal/copyright libft.h incs/ srcs/
+		cpplint --recursive --filter=-runtime/int,-readability/casting,-legal/copyright $(NAMEH) $(INCS_DIR) $(SRCS_DIR)
 
 .PHONY: test
 test:
